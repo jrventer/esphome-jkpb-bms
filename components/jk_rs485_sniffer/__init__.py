@@ -10,7 +10,7 @@ MULTI_CONF = True
 CONF_JK_RS485_SNIFFER_ID = "jk_rs485_sniffer_id"
 CONF_RX_TIMEOUT = "rx_timeout"
 CONF_PROTOCOL_VERSION = "protocol_version"
-//CONF_TALK_PIN = "talk_pin"
+## CONF_TALK_PIN = "talk_pin"
 
 jk_rs485_sniffer_ns = cg.esphome_ns.namespace("jk_rs485_sniffer")
 
@@ -36,7 +36,7 @@ CONFIG_SCHEMA = (
             cv.Required(CONF_PROTOCOL_VERSION): cv.enum(
                 PROTOCOL_VERSION_OPTIONS, upper=True
             ),         
-            //cv.Required(CONF_TALK_PIN): pins.internal_gpio_output_pin_schema,
+            ## cv.Required(CONF_TALK_PIN): pins.internal_gpio_output_pin_schema,
             cv.Optional(
                 CONF_RX_TIMEOUT, default="50ms"
             ): cv.positive_time_period_milliseconds,            
@@ -55,8 +55,8 @@ async def to_code(config):
     await uart.register_uart_device(var, config)
     cg.add(var.set_rx_timeout(config[CONF_RX_TIMEOUT]))
 
-    //talk_pin = await cg.gpio_pin_expression(config[CONF_TALK_PIN])
-    //cg.add(var.set_talk_pin(talk_pin))
+    ## talk_pin = await cg.gpio_pin_expression(config[CONF_TALK_PIN])
+    ## cg.add(var.set_talk_pin(talk_pin))
 
 def jk_rs485_sniffer_device_schema():
     schema = {
