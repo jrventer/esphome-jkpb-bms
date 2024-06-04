@@ -3,7 +3,7 @@
 #include "esphome/core/component.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/core/hal.h"
-#include "binary_output.h"
+//#include "binary_output.h"
 
 
 namespace esphome {
@@ -24,7 +24,7 @@ class JkRS485Sniffer : public uart::UARTDevice, public output::BinaryOutput, pub
   JkRS485Sniffer() = default;
 
 
-  void set_talk_pin(GPIOPin *pin) { talk_pin_ = pin; }
+  //void set_talk_pin(GPIOPin *pin) { talk_pin_ = pin; }
 
   void setup() override {
     this->turn_off();
