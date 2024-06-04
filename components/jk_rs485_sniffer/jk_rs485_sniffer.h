@@ -29,9 +29,9 @@ class JkRS485Sniffer : public uart::UARTDevice, public Component {
   void setup() override {
     this->turn_off();
     //this->talk_pin_->pin_mode(esphome::gpio::FLAG_OUTPUT);
-    this->talk_pin_->setup();
+    //this->talk_pin_->setup();
     //this->turn_on();
-    this->talk_pin_->digital_write(0); 
+    //this->talk_pin_->digital_write(0); 
   //
     for (uint8_t cont=0;cont<16;cont++){
         rs485_network_node[cont].available=0;
@@ -95,9 +95,9 @@ class JkRS485Sniffer : public uart::UARTDevice, public Component {
   uint32_t last_jk_rs485_network_activity_{0};
   std::vector<JkRS485SnifferDevice *> devices_;  
 
-  void write_state(bool state) override { this->talk_pin_->digital_write(state); }
+  //void write_state(bool state) override { this->talk_pin_->digital_write(state); }
   //void write_state(bool state) override { this->set_state(state); }
-  GPIOPin *talk_pin_;
+  //GPIOPin *talk_pin_;
 
   struct struct_rs485_network_node {
      bool available;
