@@ -94,12 +94,12 @@ void JkRS485Sniffer::send_request_to_slave(uint8_t address, uint8_t frame_type){
     // Enviar el array de bytes por UART
     std::vector<uint8_t> data_to_send(frame, frame + sizeof(frame) / sizeof(frame[0]));
 
-    this->talk_pin_->digital_write(1);
-    delayMicroseconds(500); //50us
+    //this->talk_pin_->digital_write(1);
+    //delayMicroseconds(500); //50us
     this->write_array(data_to_send);
     this->flush();
-    this->talk_pin_->digital_write(0); 
-    delayMicroseconds(500); //50us
+    //this->talk_pin_->digital_write(0); 
+    //delayMicroseconds(500); //50us
 
     const uint32_t now=millis();
 
