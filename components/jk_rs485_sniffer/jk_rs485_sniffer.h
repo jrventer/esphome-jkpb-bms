@@ -19,7 +19,7 @@ enum ProtocolVersion {
 
 class JkRS485SnifferDevice;
 
-class JkRS485Sniffer : public uart::UARTDevice, public output::BinaryOutput, public Component {
+class JkRS485Sniffer : public uart::UARTDevice, public Component {
  public:
   JkRS485Sniffer() = default;
 
