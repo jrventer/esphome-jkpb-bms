@@ -153,6 +153,7 @@ void JkRS485Bms::decode_jk02_cell_info_(const std::vector<uint8_t> &data) {
   // 10    2   0x01 0x0D              Voltage cell 03       0.001        V
   // ...
   uint8_t cells = 24 + (offset / 2);
+  ESP_LOGI(TAG, "Decoding cell info cells %d offset %d", cells, offset);
   float cell_voltage_min = 100.0f;
   float cell_voltage_max = -100.0f;
   float cell_resistance_min = 1000.0f;
